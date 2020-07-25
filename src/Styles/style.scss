@@ -1,0 +1,211 @@
+$bgColor : #f0efe9;
+$mainColor : #50e3a4;
+$fontColor : #c6c5c0;
+$placeHolder: #b2b2b2;
+$checkboxColor : #cbcac4;
+$shadow-md: 0 2px 50px rgba(0,0,0,0.08);
+$fontFamily : 'Baloo Da 2', cursive, -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+$addBorder : #dedede;
+$paColor: #95989a;
+
+body{ background: $bgColor; font-family: $fontFamily }
+.form-control{ outline: none!important;}
+.shadow-md{ -webkit-box-shadow: $shadow-md; box-shadow: $shadow-md;}
+
+.navbar-top{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  left: 0;
+  text-align: right;
+  color: $placeHolder;
+  span{
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: $placeHolder;
+    color: #fff;
+    border-radius: 50%;
+    position: relative;
+    top: 3px;
+    margin-left: 5px;
+  }
+}
+
+.main-wrapper{
+  width: 100%;
+  max-width: 500px;
+  margin: 10vh auto;
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  .flex-in{
+    width: 100%;
+    padding: 30px;
+    .main-title{
+      width: 100%;
+      text-align: center;
+      h4{
+        color: $mainColor;
+        font-weight: bold;
+        font-size: 56px;
+      }
+    }
+  }
+  .btn-login{
+    background: $mainColor;
+    border-radius: 25px;
+    color: #fff;
+    padding: 10px 25px;
+  }
+  .btn-back,
+  .btn-add{
+    background: $mainColor;
+    border-radius: 50%;
+    color: #fff;
+    height: 70px;
+    width: 70px;
+    font-size: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid $bgColor;
+    position: relative;
+    top: -30px
+  }
+  .btn-back{ font-size: 20px; }
+  .btn-back:before,
+  .btn-add:before{
+    content: "";
+    top: -6px;
+    left: -6px;
+    position: absolute;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    border: 1px solid #e9e8e2;
+    border-radius: 50%;
+  }
+  p{ color: $paColor}
+}
+
+.login-wrapper{
+  border-radius: 10px;
+  overflow: auto;
+  max-height: calc(80vh - 160px);
+  .form-control{
+    border: 0;
+    height: 50px;
+    color: $placeHolder
+  }
+  .form-control::placeholder,
+  .form-control::-moz-placeholder,
+  .form-control::-webkit-input-placeholder,
+  .form-control:-ms-input-placeholder{ color: $paColor}
+  .input-group+.input-group{ border-top: 2px solid #f0efe9 }
+  .input-group-text{ width: 35px; border: 0; background: none; justify-content: flex-end; color: $placeHolder; padding-right: 3px; }
+  &.addNew {
+    padding: 15px 30px 25px;
+    .form-group{
+      position: relative;
+      .addNew-btn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        color: $addBorder;
+        font-size: 22px;
+      }
+    }
+    .form-control{
+      border-radius: 0;
+      border-bottom: 1px solid $addBorder;
+      resize: none;
+      padding-left: 0;
+    }
+    div.form-control{ height: 38px }
+  }
+  &:not(.singlePage) .form-group+.form-group:not(.show){ display: none }
+}
+
+.list-wrapper{
+  border-radius: 10px;
+  overflow: auto;
+  max-height: calc(80vh - 220px);
+  padding: 30px 30px 15px;
+  margin-top: -60px;
+}
+
+.sub-bar{
+  border-radius: 10px;
+  overflow: auto;
+  max-height: calc(80vh - 160px);
+  padding: 0 30px;
+  margin-top: 10px;
+  color: $paColor;
+  .leftSide{
+    padding: 15px 0 15px 15px;
+    position: relative;
+    font-size: 12px;
+    &:after{
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      border-right: 1px solid $bgColor;
+    }
+    .text{
+      color: $mainColor
+    }
+  }
+  .col+.col-7{
+    padding: 15px;
+    font-size: 12px;
+    .label{
+      margin: 0 3px;
+      &.active{
+        background: $mainColor;
+        color: #fff;
+        border-radius: 4px;
+        padding: 0 4px;
+      }
+    }
+  }
+}
+
+.check-wrapper{
+  .form-check{ padding-left: 0}
+  label, a { color: $fontColor; cursor: pointer}
+  .check-container { display: block; position: relative; padding-left: 24px; margin-bottom: 12px; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+  .check-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+  .checkmark { position: absolute; top: 1px; left: 0; height: 18px; width: 18px; border-radius: 50%; border: 2px solid $checkboxColor }
+  .check-container input:checked ~ .checkmark {background-color: $checkboxColor; }
+  .checkmark:after { content: ""; position: absolute; display: none; }
+  .check-container input:checked ~ .checkmark:after { display: block; }
+  .check-container .checkmark:after { left: 0px; top: 0px; width: 14px; height: 14px; border: 2px solid $bgColor; border-radius: 50% }
+  &.listing-style{
+    label, a { color: $paColor}
+    .check-container{ padding-left: 0; padding-right: 30px;  }
+    .checkmark{ left: auto; right: 0; border: 1px solid $addBorder; top: 1px; height: 22px; width: 22px }
+    .selected .checkmark{ background-color: $mainColor; }
+    .selected .checkmark:after{
+      display: block;
+      background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z' clip-rule='evenodd'/></svg>");
+      background-repeat: no-repeat;
+      background-size: 1.2rem 1.2rem;
+      border: 0;
+      content: "";
+      top: 1px;
+      left: 1px;
+    }
+    label.selected .text{ color: $addBorder; text-decoration: line-through }
+    .elId{ float: right; color: $addBorder; font-size: 12px; position: relative; top: 4px }
+    .delete{ position: absolute; right: -25px; top: 1px; display: inline-flex; border-radius: 50%; background: #e05350; color: #fff; width: 22px; height: 22px; justify-content: center; align-items: center }
+  }
+}
+
