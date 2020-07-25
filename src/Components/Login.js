@@ -26,11 +26,8 @@ class Login extends Component {
     onSubmit(e){
         e.preventDefault();
         this.setState({ errors: {}, isLoading: false});
-        //this.props.LoginFunc(this.state).then((data) => { console.log(data+' asd') }, (err) => { console.log(err)})
-        console.log(this.props.LoginFunc(this.state))
         if(this.props.LoginFunc(this.state).user){
             let user = this.props.LoginFunc(this.state).user;
-            console.log(user)
             if(localStorage.getItem('user')){
                 localStorage.removeItem('user')
             }
